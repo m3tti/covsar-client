@@ -1,0 +1,13 @@
+<h3>{{model.bundesland}}</h3>
+<CovidDetails @data={{@model}}>
+  <tr>
+    <td>Infizierte:</td>
+    <td>{{format-number @model.count}}</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Tote:</td>
+    <td>{{format-number @model.deaths}}</td>
+    <td>{{calculate-percent @model.count @model.deaths}}%</td>
+  </tr>
+</CovidDetails>

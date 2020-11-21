@@ -1,0 +1,25 @@
+<h2>Highscore</h2>
+<table class="table">
+  <th>
+    Platz
+  </th>
+  <th>
+    Kreis
+  </th>
+  <th>
+    Patienten Stationaer
+  </th>
+  {{#each @model as |item index|}}
+  <tr>
+    <td>
+      #{{human-index index}}
+    </td>
+    <td>
+      {{item.kreisname}}
+    </td>
+    <td>
+      {{item.covid}}
+    </td>
+  </tr>
+  {{/each}}
+</table>

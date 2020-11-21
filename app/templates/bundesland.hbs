@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="one-third column">
+  {{#each model as |b|}}
+    <div class="bundesland-item">
+      <LinkTo @route="bundesland.details" @model={{b}}>
+        {{b}}
+      </LinkTo>
+    </div>
+  {{/each}}
+  </div>
+  <div class="two-thirds column">
+    {{outlet}}
+  </div>
+</div>

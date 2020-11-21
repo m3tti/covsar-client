@@ -1,0 +1,18 @@
+<h1>Ganz Deutschland</h1>
+<CovidDetails @data={{@model}}>
+  <tr>
+    <td>Infizierte:</td>
+    <td>{{format-number @model.cases}}</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Tote:</td>
+    <td>{{format-number @model.deaths}}</td>
+    <td>{{calculate-percent @model.cases @model.deaths}}%</td>
+  </tr>
+  <tr>
+    <td>Genesen:</td>
+    <td>{{format-number @model.recovered}}</td>
+    <td>{{calculate-percent @model.cases @model.recovered}}%</td>
+  </tr>
+</CovidDetails>

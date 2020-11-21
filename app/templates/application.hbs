@@ -1,5 +1,22 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
-
+<nav class="nav-bar">
+  <a class="nav-bar-logo" href="/">Covid19 Data</a>
+  <div class="nav-bar-list">
+    <ul>
+      <li class="nav-item">
+        <LinkTo class="nav-link" @route="index">Gesamt</LinkTo>
+      </li>
+      <li class="nav-item">
+        <LinkTo class="nav-link" @route="bundesland">Bundesland</LinkTo>
+      </li>
+      <li class="nav-item">
+        <LinkTo class="nav-link" @route="kreis">Kreis</LinkTo>
+      </li>
+      <!--<li class="nav-item">
+        <LinkTo class="nav-link" @route="highscore">Highscore</LinkTo>
+      </li>-->
+    </ul>
+  </div>
+</nav>
+<div class="container top-margin">
 {{outlet}}
+</div>

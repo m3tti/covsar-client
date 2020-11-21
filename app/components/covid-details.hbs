@@ -1,0 +1,46 @@
+<table class="table">
+  <thead>
+    <tr><th colspan="3">Gesamt</th></tr>
+  </thead>
+  <tbody>
+    {{yield}}
+  </tbody>
+
+  <thead>
+    <tr>
+      <th colspan="3">Covid Patienten Stationaer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Gesamt:</td>
+      <td>{{format-number @data.covid}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Beatmet:</td>
+      <td>{{format-number @data.covidBeatmet}}</td>
+      <td>{{calculate-percent @data.covid @data.covidBeatmet}}%</td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr><th colspan="3">Betten</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Gesamt:</td>
+      <td>{{format-number @data.bettenGesamt}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Frei:</td>
+      <td>{{format-number @data.bettenFrei}}</td>
+      <td>{{calculate-percent @data.bettenGesamt @data.bettenFrei}}%</td>
+    </tr>
+    <tr>
+      <td>Belegt:</td>
+      <td>{{format-number @data.bettenBelegt}}</td>
+      <td>{{calculate-percent @data.bettenGesamt @data.bettenBelegt}}%</td>
+    </tr>
+  </tbody>
+</table>

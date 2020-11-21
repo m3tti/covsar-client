@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="one-third column">
+    <div>
+      <Input class="u-full-width" @value={{input}} {{on "input" filter}} {{on "change" filter}}/>
+    </div>
+    <div class="kreis">
+      {{#each filteredKreise as |k|}}
+      <div class="kreis-item">
+        <LinkTo @route="kreis.details" @model={{k}}>
+          {{k}}
+        </LinkTo>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <div class="two-thirds column">
+    {{outlet}}
+  </div>
+</div>

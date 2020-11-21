@@ -1,0 +1,7 @@
+<div class="res">
+  {{model}}
+</div>
+<div>
+  <textarea value={{this.sql}} {{on "input" setSql}}></textarea>
+  <LinkTo @route="query" @query={{hash sql=this.newSql}}>Execute</LinkTo>
+</div>

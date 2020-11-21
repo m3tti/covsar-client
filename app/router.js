@@ -7,4 +7,14 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function() {
+  this.route('index', { path: '/' });
+  this.route('query', function() {});
+
+  this.route('kreis', { path: "/kreis" }, function() {
+    this.route('details', { path: "/details/:kreisname" });
+  });
+  this.route('highscore');
+  this.route('bundesland', function() {
+    this.route('details', { path: "/details/:bundesland"});
+  });
 });
