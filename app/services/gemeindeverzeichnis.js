@@ -11,6 +11,6 @@ export default class Gemeindeverzeichnis extends Service {
 
     var str = await req.text();
 
-    return csv({ delimiter: "auto"}).fromString(str)
+    return csv({ delimiter: "auto" }).fromString(str)
   }
 }

@@ -40,6 +40,13 @@
   margin-top: 100px;
 }
 
+.table-section {
+  border-bottom: none;
+  padding-top: 40px;
+  padding-bottom: 0px;
+  color: rgb(130,130,130);
+}
+
 .bundesland-item {
   padding: 10px;
 }

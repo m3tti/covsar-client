@@ -6,6 +6,11 @@
     <td></td>
   </tr>
   <tr>
+    <td>Aktuell Infiziert:</td>
+    <td>{{format-number @model.currentlyInfected}}</td>
+    <td>{{calculate-percent @model.cases @model.currentlyInfected}}%</td>
+  </tr>
+  <tr>
     <td>Tote:</td>
     <td>{{format-number @model.deaths}}</td>
     <td>{{calculate-percent @model.cases @model.deaths}}%</td>

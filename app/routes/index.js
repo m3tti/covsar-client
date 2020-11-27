@@ -21,6 +21,7 @@ export default class IndexRoute extends Route {
       bettenFrei: this.getFirst(bettenFrei),
       bettenBelegt: this.getFirst(bettenBelegt),
       bundesland: bundesland.map(e => e.Bundesland),
+      currentlyInfected: covidGeneral.cases - covidGeneral.recovered,
       ...covidGeneral,
     };
   }  

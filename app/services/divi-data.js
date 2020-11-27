@@ -10,7 +10,6 @@ export default class DiviData extends Service {
 
   async fetchBedData() {
     const corsProxy = "https://cors-anywhere.herokuapp.com"
-    //const url = `${corsProxy}/www.divi.de:443/joomlatools-files/docman-files/divi-intensivregister-tagesreports-csv/DIVI-Intensivregister_${format(new Date(), "yyyy-MM-dd")}_12-15.csv`;
     const url = `${corsProxy}/https://diviexchange.blob.core.windows.net/%24web/DIVI_Intensivregister_Auszug_pro_Landkreis.csv`;
     const options = { headers: { 'origin': '*', 'x-requested-with': "bla" } };
     const req = await fetch(url, options);
@@ -35,7 +34,7 @@ export default class DiviData extends Service {
   }
 
   extender(el, gemeindeRegister) {
-    const d = gemeindeRegister.filter(e => e.Amtl.Gemeindeschlüssel.includes(el.gemeindeschluessel));
+    const d = gemeindeRegister.filter(e => e.Amtl["Gemeindeschlüssel"].slice(0,5) === el.gemeindeschluessel);
     const first = d[0] || { Bundesland: "", Kreisname: "" }
     
     return {
