@@ -1,13 +1,23 @@
 <h3>{{model.kreisname}}</h3>
 <CovidDetails @data={{@model}}>
   <tr>
+    <td>Bevoelkerung:</td>
+    <td>{{format-number @model.bevoelkerung.bevoelkerung}}</td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Infizierte:</td>
     <td>{{format-number @model.count}}</td>
-    <td></td>
+    <td>{{calculate-percent @model.bevoelkerung.bevoelkerung @model.count}}%</td>
   </tr>
   <tr>
     <td>Tote:</td>
     <td>{{format-number @model.deaths}}</td>
-    <td>{{calculate-percent @model.count @model.deaths}}%</td>
+    <td>{{calculate-percent @model.count @model.deaths}}% der Infizierten</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>{{calculate-percent @model.bevoelkerung.bevoelkerung @model.deaths}}% der Bevoelkerung</td>
   </tr>
 </CovidDetails>

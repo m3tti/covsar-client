@@ -4,6 +4,7 @@ import { inject as service } from "@ember/service";
 export default class KreisDetailsRoute extends Route {
   @service diviData;
   @service covidData;
+  @service bevoelkerung;
 
   async model(params) {
     const sql = `SELECT 
@@ -15,9 +16,11 @@ export default class KreisDetailsRoute extends Route {
     FROM ? WHERE kreisname = "${params.kreisname}"`
     const data = await this.diviData.query(sql);
     const covid = await this.covidData.getDistrictData(params.kreisname);
-
+    const bevoelkerung = await this.bevoelkerung.getForKreis(params.kreisname)
+    
     return {
       kreisname: params.kreisname,
+      bevoelkerung,
       ...data[0],
       ...covid,
     }

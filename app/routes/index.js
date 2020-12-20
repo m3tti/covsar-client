@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 export default class IndexRoute extends Route {
   @service diviData;
   @service covidData;
+  @service bevoelkerung;
 
   async model() {
     const covid = await this.diviData.query("SELECT sum(faelle_covid_aktuell) FROM ?");
@@ -13,8 +14,10 @@ export default class IndexRoute extends Route {
     const bettenBelegt = await this.diviData.query("SELECT sum(betten_belegt) FROM ?");
     const bundesland = await this.diviData.query("SELECT DISTINCT Bundesland FROM ?")
     const covidGeneral = await this.covidData.fetchGeneral();
-
+    const bevoelkerungTotal = await this.bevoelkerung.getTotal();
+    
     return {
+      bevoelkerungTotal,
       covid: this.getFirst(covid),
       covidBeatmet: this.getFirst(covidBeatmet),
       bettenGesamt: this.getFirst(bettenGesamt),
