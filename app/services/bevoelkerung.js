@@ -16,7 +16,12 @@ export default class BevoelkerungService extends Service {
 
   async getForKreis(kreis) {
     const vals = await this.getJson();
-    return vals.find(e => e.kreisName.includes(kreis.split(",")[0]));
+    return vals.find(e => {
+      if(e.kreisName) {
+        return e.kreisName.includes(kreis.split(",")[0])
+      }
+      return false;
+    });
   }
 
   async getTotal() {
