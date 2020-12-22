@@ -2,6 +2,24 @@ import Service from '@ember/service';
 
 export default class BevoelkerungService extends Service {
   path = "/resources/bevoelkerung.csv";
+  bundeslandCode = {
+    "01": "Schleswig-Holstein",
+    "02": "Freie und Hansestadt Hamburg",
+    "03": "Niedersachsen",
+    "04": "Freie Hansestadt Bremen",
+    "05": "Nordrhein-Westfalen",
+    "06": "Hessen",
+    "07": "Rheinland-Pfalz",
+    "08": "Baden-Württemberg",
+    "09": "Bayern",
+    "10": "Saarland",
+    "11": "Berlin",
+    "12": "Brandenburg",
+    "13": "Mecklenburg-Vorpommern",
+    "14": "Freistaat Sachsen",
+    "15": "Sachsen-Anhalt",
+    "16": "Freistaat Thüringen",
+  };
 
   async getJson() {
     var req = await fetch(this.path);
@@ -22,6 +40,29 @@ export default class BevoelkerungService extends Service {
       }
       return false;
     });
+  }
+
+  async getForBundesland(bundesland) {
+    const bundeslandKey = this.getKeyForBundesland(bundesland);
+    const vals = await this.getJson();
+    const landkreiseInBundesland = vals.filter(e => {
+      if(e.kreis) {
+        return e.kreis.substring(0, 2) === bundeslandKey
+      }
+      return false;
+    });
+
+    return landkreiseInBundesland.map(e => e.bevoelkerung).reduce(this.sum, 0);
+  }
+
+  getKeyForBundesland(bundesland) {
+    let res = "";
+    Object.keys(this.bundeslandCode).forEach(key => {
+      if(this.bundeslandCode[key] === bundesland) {
+        res = key;
+      }
+    })
+    return res;
   }
 
   async getTotal() {

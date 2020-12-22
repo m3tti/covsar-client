@@ -11,7 +11,7 @@ export default class DiviData extends Service {
   async fetchBedData() {
     const corsProxy = "https://cors-anywhere.herokuapp.com"
     const url = `${corsProxy}/https://diviexchange.blob.core.windows.net/%24web/DIVI_Intensivregister_Auszug_pro_Landkreis.csv`;
-    const options = { headers: { 'origin': '*', 'x-requested-with': "bla" } };
+    const options = { headers: { 'origin': '*', 'X-Requested-With': "bla" } };
     const req = await fetch(url, options);
     
     if(req.status <= 200) {
