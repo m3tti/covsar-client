@@ -3,6 +3,26 @@
     <tr><th class="table-section" colspan="3">Gesamt</th></tr>
   </thead>
   <tbody>
+    <tr>
+      <td>Bevoelkerung:</td>
+      <td>{{format-number @data.bevoelkerungTotal}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Infizierte:</td>
+      <td>{{format-number @data.count}}</td>
+      <td>{{calculate-percent @data.bevoelkerungTotal @data.count}}%</td>
+    </tr>
+    <tr>
+      <td>Tote:</td>
+      <td>{{format-number @data.deaths}}</td>
+      <td>{{calculate-percent @data.count @data.deaths}}% der Infizierten</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>{{calculate-percent @data.bevoelkerungTotal @data.deaths}}% der Bevoelkerung</td>
+    </tr>
     {{yield}}
   </tbody>
 
@@ -15,7 +35,7 @@
     <tr>
       <td>Gesamt:</td>
       <td>{{format-number @data.covid}}</td>
-      <td></td>
+      <td>{{calculate-percent @data.count @data.covid}}% der Infizierten</td>
     </tr>
     <tr>
       <td>Beatmet:</td>

@@ -16,11 +16,11 @@ export default class KreisDetailsRoute extends Route {
     FROM ? WHERE kreisname = "${params.kreisname}"`
     const data = await this.diviData.query(sql);
     const covid = await this.covidData.getDistrictData(params.kreisname);
-    const bevoelkerung = await this.bevoelkerung.getForKreis(params.kreisname)
+    const bevoelkerungTotal = await this.bevoelkerung.getForKreis(params.kreisname)
     
     return {
       kreisname: params.kreisname,
-      bevoelkerung,
+      bevoelkerungTotal: bevoelkerungTotal.bevoelkerung,
       ...data[0],
       ...covid,
     }

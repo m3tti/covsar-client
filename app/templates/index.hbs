@@ -1,29 +1,9 @@
 <h1>Ganz Deutschland</h1>
 <CovidDetails @data={{@model}}>
   <tr>
-    <td>Bevoelkerung:</td>
-    <td>{{format-number @model.bevoelkerungTotal}}</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Infizierte:</td>
-    <td>{{format-number @model.cases}}</td>
-    <td>{{calculate-percent @model.bevoelkerungTotal @model.cases}}%</td>
-  </tr>
-  <tr>
     <td>Aktuell Infiziert:</td>
     <td>{{format-number @model.currentlyInfected}}</td>
     <td>{{calculate-percent @model.cases @model.currentlyInfected}}%</td>
-  </tr>
-  <tr>
-    <td>Tote:</td>
-    <td>{{format-number @model.deaths}}</td>
-    <td>{{calculate-percent @model.cases @model.deaths}}% der Infizierten</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td>{{calculate-percent @model.bevoelkerungTotal @model.deaths}}% der Bevoelkerung</td>
   </tr>
   <tr>
     <td>Genesen:</td>
