@@ -10,4 +10,14 @@
     <td>{{format-number @model.recovered}}</td>
     <td>{{calculate-percent @model.cases @model.recovered}}%</td>
   </tr>
+  <tr>
+    <td>Neu Infiziert:</td>
+    <td>{{format-number @model.difference.cases}}</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Neu Gestorben:</td>
+    <td>{{format-number @model.difference.deaths}}</td>
+    <td></td>
+  </tr>
 </CovidDetails>
