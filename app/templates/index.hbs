@@ -3,7 +3,12 @@
   <tr>
     <td>Aktuell Infiziert:</td>
     <td>{{format-number @model.currentlyInfected}}</td>
-    <td>{{calculate-percent @model.cases @model.currentlyInfected}}%</td>
+    <td>{{calculate-percent @model.cases @model.currentlyInfected}}% der Infizierten</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>{{calculate-percent @model.bevoelkerungTotal @model.currentlyInfected}}% der Bevoelkerung</td>
   </tr>
   <tr>
     <td>Genesen:</td>
